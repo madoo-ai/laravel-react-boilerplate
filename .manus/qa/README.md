@@ -40,9 +40,11 @@ Demo accounts use password `password`. Never put real secrets in a spec.
 - Add a regression test for every repeatable QA finding.
 - Commit changes to this directory only from a QA session, and only as test
   changes.
-- A reseed removes this directory and restores the version from the run
-  branch. The master must collect a QA test commit before the next prompt;
-  uncollected QA edits do not survive.
+- A QA reseed keeps this directory and overlays it on the run branch. A
+  developer or master reseed gets the committed version from the run branch.
+  Commit test changes so the master can collect them as a test patch.
+- The commit history stays in the QA workspace. The master must collect the
+  test patch before the run completes.
 
 ## Commit test changes
 

@@ -42,4 +42,6 @@ dump.rdb
 laravel_boilerplate
 
 # Manus session state (Postgres data, local runtime)
-/.manus/
+/.manus/*
+!/.manus/qa/
+!/.manus/qa/**

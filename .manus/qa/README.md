@@ -31,6 +31,10 @@ QA_BASE_URL=http://127.0.0.1:8000 npm --prefix .manus/qa test
 
 Demo accounts use password `password`. Never put real secrets in a spec.
 
+The global setup runs `php artisan cache:clear` once per suite. This resets the
+Fortify login limiter, which is keyed by email and IP. Without the reset, two
+back-to-back suite runs can inherit the same counter and fail with HTTP 429.
+
 ## Rules
 
 - Use role and test-id locators, not snapshot refs.

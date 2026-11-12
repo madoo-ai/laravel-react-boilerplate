@@ -5,6 +5,7 @@ const baseURL = process.env.QA_BASE_URL ?? "http://127.0.0.1:8000"
 
 export default defineConfig({
   testDir: "./tests",
+  globalSetup: "./global-setup.ts",
   timeout: 60_000,
   expect: { timeout: 10_000 },
   fullyParallel: false,

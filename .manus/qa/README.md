@@ -35,7 +35,7 @@ Demo accounts use password `password`. Never put real secrets in a spec.
 
 - Use role and test-id locators, not snapshot refs.
 - Playwright auto-waits. Do not add fixed `waitms`.
-- Screenshots, videos, and traces are retained only on failure.
+- Screenshots and traces are retained only on failure.
 - A failed test should leave enough evidence to diagnose the defect.
 - Add a regression test for every repeatable QA finding.
 - Commit changes to this directory only from a QA session, and only as test

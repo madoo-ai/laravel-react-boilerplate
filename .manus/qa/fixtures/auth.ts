@@ -6,7 +6,7 @@ type QAFixtures = {
 
 async function signIn(page: Page, email: string, password: string) {
   await page.goto("/login")
-  await page.getByLabel("Email", { exact: true }).fill(email)
+  await page.getByLabel(/email/i).fill(email)
   await page.getByLabel("Password", { exact: true }).fill(password)
   await page.getByRole("button", { name: /sign in/i }).click()
   await expect(page).not.toHaveURL(/\/login(?:$|\?)/)

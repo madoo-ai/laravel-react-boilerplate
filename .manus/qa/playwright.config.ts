@@ -20,7 +20,6 @@ export default defineConfig({
     ignoreHTTPSErrors: true,
     trace: "retain-on-failure",
     screenshot: "only-on-failure",
-    video: "retain-on-failure",
     launchOptions: {
       executablePath,
       args: ["--no-sandbox", "--disable-dev-shm-usage"],

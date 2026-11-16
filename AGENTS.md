@@ -62,7 +62,7 @@ boilerplate behind.
 | UI components                            | `resources/js/components/ui`, `docs/adr/0008-one-ui-primitive-layer.md`                                                                                             |
 | Navigation and permissions               | `resources/js/config/navigation.ts`                                                                                                                                 |
 | Localization                             | `lang/`, `resources/js/i18n/locales/`, `eslint-rules/i18n`, `scripts/check-i18n.mjs`                                                                                |
-| Tests                                    | `tests/Feature`, `tests/Unit`, `.manus/qa`                                                                                                                          |
+| Tests                                    | `tests/Feature`, `tests/Unit`, `tests/browser`                                                                                                                          |
 | Database                                 | `database/migrations`, `database/seeders`                                                                                                                           |
 
 Wayfinder files under `resources/js/{actions,routes,wayfinder}` are generated.
@@ -98,13 +98,14 @@ use that URL after `make dev`.
 
 ## QA browser suite
 
-`.manus/qa` is the QA-owned Playwright suite. It is committed to the product
-repository during the experimental Alcides phase. QA may commit changes there;
-other agents may read and run it, but must not weaken its tests.
+`tests/browser` is the product Playwright suite. QA owns test additions there;
+other agents may read and run it, but must not weaken its tests. QA commits test
+changes on its QA branch and the control plane merges the tested commit into
+main.
 
 ```sh
-PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm --prefix .manus/qa ci
-npm --prefix .manus/qa test
+PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm --prefix tests/browser ci
+npm --prefix tests/browser test
 ```
 
 Use role and test-id locators. Playwright auto-waits; do not add fixed

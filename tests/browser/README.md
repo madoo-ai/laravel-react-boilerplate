@@ -1,8 +1,8 @@
 # QA browser harness
 
-This directory is the QA-owned browser suite. It is committed to the product
-repository for the current experimental Alcides phase, so QA can maintain it
-and outside QA can read it.
+This directory is the product Playwright suite for the browser harness. It is
+tracked source. QA owns its test additions and may commit them on a QA branch;
+the control plane merges the tested test commit into main.
 
 The QA agent owns this directory. Other agents may read it and run it, but they
 must not weaken its tests to make an implementation pass.
@@ -14,19 +14,19 @@ must not weaken its tests to make an implementation pass.
 - Install the pinned runner once:
 
 ```sh
-PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm --prefix .manus/qa ci
+PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm --prefix tests/browser ci
 ```
 
 ## Run
 
 ```sh
-npm --prefix .manus/qa test
+npm --prefix tests/browser test
 ```
 
 The base URL defaults to `http://127.0.0.1:8000`. Override it with:
 
 ```sh
-QA_BASE_URL=http://127.0.0.1:8000 npm --prefix .manus/qa test
+QA_BASE_URL=http://127.0.0.1:8000 npm --prefix tests/browser test
 ```
 
 Demo accounts use password `password`. Never put real secrets in a spec.
@@ -44,18 +44,15 @@ back-to-back suite runs can inherit the same counter and fail with HTTP 429.
 - Add a regression test for every repeatable QA finding.
 - Commit changes to this directory only from a QA session, and only as test
   changes.
-- A QA reseed keeps this directory and overlays it on the run branch. A
-  developer or master reseed gets the committed version from the run branch.
-  Commit test changes so the master can collect them as a test patch.
-- The commit history stays in the QA workspace. The master must collect the
-  test patch before the run completes.
+- The suite is part of the product repository. Commit test changes so the
+  control plane can merge the tested test commit into main for the next loop.
 
 ## Commit test changes
 
 Use a test-only commit:
 
 ```sh
-git add .manus/qa
+git add tests/browser
 git -c user.name="Alcides QA" -c user.email="qa@manus.local" \
   commit -m "test(qa): add login smoke coverage"
 ```

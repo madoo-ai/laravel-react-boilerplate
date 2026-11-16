@@ -43,5 +43,3 @@ laravel_boilerplate
 
 # Manus session state (Postgres data, local runtime)
 /.manus/*
-!/.manus/qa/
-!/.manus/qa/**

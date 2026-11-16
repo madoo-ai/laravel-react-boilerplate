@@ -15,6 +15,11 @@ resources:
   cpus: "4"
   memory: 6g
   pids: 1024
+
+qa:
+  test_dir: tests/browser
+  config: tests/browser/playwright.config.ts
+
 preview:
   port: 8000
 secrets:

@@ -1,6 +1,6 @@
 apiVersion: manus-dei/v1
 name: laravel-react-boilerplate
-base: manus-dei/base@sha256:2008fad107276967244bb52a900afd28d63230c2ea757f993b61e17ec7cbbc36
+base: manus-dei/base@sha256:8efd2daf9edbdaad3325150b4c401de7b2b7b2d5550e811ba2df87b26aa25d3c
 platform: linux/amd64
 workspace: template
 toolchain:

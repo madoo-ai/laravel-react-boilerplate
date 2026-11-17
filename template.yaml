@@ -1,6 +1,6 @@
 apiVersion: manus-dei/v1
 name: laravel-react-boilerplate
-base: manus-dei/base@sha256:4dadc1e34d7aa265ede522c0b6cb4800eb90858423bbadeed7fcafe0c0a02bcd
+base: manus-dei/base@sha256:2008fad107276967244bb52a900afd28d63230c2ea757f993b61e17ec7cbbc36
 platform: linux/amd64
 workspace: template
 toolchain:
@@ -10,7 +10,7 @@ toolchain:
   - postgresql@18
 opencode:
   mode: connect
-  model: opencode/deepseek-v4.1-flash
+  model: litellm/hephaestus
 resources:
   cpus: "4"
   memory: 6g
